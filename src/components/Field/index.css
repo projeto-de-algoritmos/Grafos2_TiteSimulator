@@ -1,0 +1,17 @@
+.field {
+    height: 408px;
+    width: 630px;
+    background-color: #22B14C;
+
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas:
+        "x1 x1 x1 x1 x1 x1 x1 x1 x1 x1 x1 x1 x1"
+        "x2 x2 x2 x2 2  x3 x3 x3 x3 9  x4 x4 x4"
+        "x5 x5 x5 3  x6 x6 6  x7 x7 x7 x7 x7 x7"
+        "x8 1  x9 x9 x9 x9 x9 8  a1 a1 a1 11 a2"
+        "a3 a3 a3 4  a4 a4 7  a5 a5 a5 a5 a5 a5"
+        "a6 a6 a6 a6 5  a7 a7 a7 a7 10 a8 a8 a8"
+        "a9 a9 a9 a9 a9 a9 a9 a9 a9 a9 a9 a9 a9";
+}

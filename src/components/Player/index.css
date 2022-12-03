@@ -1,0 +1,15 @@
+.player {
+    height: 36px;
+    width: 36px;
+    border-radius: 22px;
+    border: solid green 3px;
+
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: yellow;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
