@@ -1,4 +1,4 @@
-.field {
+.field-players {
     height: 408px;
     width: 630px;
     background-color: #22B14C;
@@ -22,48 +22,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.player1 {
-    grid-area: p1;
-}
-
-.player2 {
-    grid-area: p2;
-}
-
-.player3 {
-    grid-area: p3;
-}
-
-.player4 {
-    grid-area: p4;
-}
-
-.player5 {
-    grid-area: p5;
-}
-
-.player6 {
-    grid-area: p6;
-}
-
-.player7 {
-    grid-area: p7;
-}
-
-.player8 {
-    grid-area: p8;
-}
-
-.player9 {
-    grid-area: p9;
-}
-
-.player10 {
-    grid-area: p10;
-}
-
-.player11 {
-    grid-area: p11;
 }

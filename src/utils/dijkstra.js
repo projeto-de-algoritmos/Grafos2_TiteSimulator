@@ -127,6 +127,7 @@ function dijkstra(graph, start, finish) {
             }
         }
     }
+    if (path.length === 0) return null;
     return path.concat(smallest).reverse();
 }
 

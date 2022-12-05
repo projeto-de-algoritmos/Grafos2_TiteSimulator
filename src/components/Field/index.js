@@ -3,18 +3,18 @@ import './index.css';
 
 const Field = (props) => {
     return (
-        <div className="field">
-            <Player number="1" />
-            <Player number="2" />
-            <Player number="3" />
-            <Player number="4" />
-            <Player number="5" />
-            <Player number="6" />
-            <Player number="7" />
-            <Player number="8" />
-            <Player number="9" />
-            <Player number="10" />
-            <Player number="11" />
+        <div className="field-players">
+            <Player number="1" status='normal' />
+            <Player number="2" status='normal' />
+            <Player number="3" status='normal' />
+            <Player number="4" status='normal' />
+            <Player number="5" status='normal' />
+            <Player number="6" status='normal' />
+            <Player number="7" status='normal' />
+            <Player number="8" status='normal' />
+            <Player number="9" status='normal' />
+            <Player number="10" status='normal' />
+            <Player number="11" status='normal' />
         </div>
     );
 }

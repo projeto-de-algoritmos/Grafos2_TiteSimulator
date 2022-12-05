@@ -7,7 +7,7 @@ import Board from '../../components/Board';
 import './index.css';
 
 const MainPage = () => {
-  const [mode, setMode] = useState('init'); // Status disponíveis: init/result
+  const [mode, setMode] = useState('init'); // Status: init/neutralize/result
   const [boardText, setBoardText] = useState('BEM AMIGOS DA REDE GLOBO!');
 
   const [resultBtnStatus, setResultBtnStatus] = useState('active');
@@ -16,12 +16,15 @@ const MainPage = () => {
   const handleResultClick = () => {
     setMode('result');
     const result = dijkstra(graph, "1", "11");
-
-    let resultString = '';
-    result.forEach(
-      (node, index) => resultString = index === 0 ? String(node) : `${resultString}-${node}`
-    );
-    setBoardText(resultString);
+    if (result !== null) {
+      let resultString = '';
+      result.forEach(
+        (node, index) => resultString = index === 0 ? String(node) : `${resultString}-${node}`
+      );
+      setBoardText(resultString);
+    } else {
+      setBoardText("ARGENTINA NEUTRALIZOU TODAS JOGADAS POSSÍVEIS");
+    }
   }
 
   const handleResetClick = () => {
