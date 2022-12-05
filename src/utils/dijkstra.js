@@ -81,6 +81,23 @@ class PriorityQueue {
     }
 }
 
+function getWeightedGraphFromData(formationPlayersData) {
+    var graph = new WeightedGraph();
+
+    // adiciona os vertices do grafo
+    formationPlayersData.forEach(playerData => {
+        graph.addVertex(playerData.playerNumber);
+    });
+    // adiciona arestas do grafo com seus respectivos pesos
+    formationPlayersData.forEach(playerData => {
+        playerData.touchOptions.forEach(touchOption => {
+            graph.addEdge(playerData.playerNumber, touchOption.playerNumber, touchOption.weight);
+        });
+    });
+
+    return graph;
+}
+
 function dijkstra(graph, start, finish) {
     const nodes = new PriorityQueue();
     const distances = {};
@@ -131,5 +148,5 @@ function dijkstra(graph, start, finish) {
     return path.concat(smallest).reverse();
 }
 
-export { WeightedGraph };
 export default dijkstra;
+export { getWeightedGraphFromData };

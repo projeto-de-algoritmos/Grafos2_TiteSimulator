@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Button from '../../components/Button';
-import dijkstra from '../../utils/dijkstra';
-import graph from '../../data/formations/4123';
 import Field from '../../components/Field';
 import Board from '../../components/Board';
+import Button from '../../components/Button';
+import { getFormationFromName } from '../../data/formations';
+import dijkstra, { getWeightedGraphFromData } from '../../utils/dijkstra';
 import './index.css';
 
 const MainPage = () => {
@@ -15,6 +15,9 @@ const MainPage = () => {
 
   const handleResultClick = () => {
     setMode('result');
+    const formationData = getFormationFromName('4-1-2-3');
+    const graph = getWeightedGraphFromData(formationData.formationPlayers);
+
     const result = dijkstra(graph, "1", "11");
     if (result !== null) {
       let resultString = '';
