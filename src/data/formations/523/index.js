@@ -1,5 +1,5 @@
 const formationData = {
-    formationName: "4-1-2-3",
+    formationName: "5-2-3",
     firstPlayer: "1",
     lastPlayer: "11",
     formationPlayers: [

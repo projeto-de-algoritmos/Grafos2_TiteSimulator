@@ -2,8 +2,10 @@ import Player from '../Player';
 import './index.css';
 
 const Field = (props) => {
+    const { formation } = props;
+
     return (
-        <div className="field-players">
+        <div className={`field-players field${formation}`}>
             <Player number="1" status='normal' />
             <Player number="2" status='normal' />
             <Player number="3" status='normal' />

@@ -9,8 +9,25 @@ section {
     height: 100vh;
 }
 
+.options-container {
+    max-width: 630px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .btn {
     margin: 4px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.select-formation {
+    width: 200px !important;
 }
 
 .field-container {

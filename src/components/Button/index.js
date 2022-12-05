@@ -5,7 +5,8 @@ const Button = (props) => {
         'active': 'btn-primary',
         'idle': 'btn-secondary',
         'success': 'btn-success',
-        'disabled': 'btn-secondary'
+        'disabled': 'btn-secondary',
+        'hidden': 'd-none'
     }
     const btnClass = statusClass[status];
     const disabled = status === 'disabled' ? true : false;
