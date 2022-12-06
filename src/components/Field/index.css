@@ -1,43 +1,22 @@
-.field-players {
-    height: 408px;
+.field {
+    height: 420px;
     width: 630px;
     background-color: #22B14C;
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    position: relative;
 }
 
-.field4-1-2-3 {
-    display: grid;
-    grid-template-columns: repeat(13, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas:
-        "... ... ... ... ... ... ... ... ... ... ... ... ..."
-        "... ... ... ... p2  ... ... ... ... p9  ... ... ..."
-        "... ... ... ... ... ... ... ... ... ... ... ... ..."
-        "... ... ... p3  ... ... p6  ... ... ... ... ... ..."
-        "... p1  ... ... ... ... ... ... p8  ... ... p11 ..."
-        "... ... ... p4  ... ... p7  ... ... ... ... ... ..."
-        "... ... ... ... ... ... ... ... ... ... ... ... ..."
-        "... ... ... ... p5  ... ... ... ... p10 ... ... ..."
-        "... ... ... ... ... ... ... ... ... ... ... ... ...";
+.field-players {
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
-.field5-2-3 {
-    display: grid;
-    grid-template-columns: repeat(13, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    grid-template-areas:
-        "... ... ... ... ... ... ... ... ... ... ... ... ..."
-        "... ... ... ... ... p5  ... ... ... p9  ... ... ..."
-        "... ... ... p2  ... ... ... ... ... ... ... ... ..."
-        "... ... ... ... ... ... ... p7  ... ... ... ... ..."
-        "... p1  ... p3  ... ... ... ... ... ... ... p11 ..."
-        "... ... ... ... ... ... ... p8  ... ... ... ... ..."
-        "... ... ... p4  ... ... ... ... ... ... ... ... ..."
-        "... ... ... ... ... p6  ... ... ... p10 ... ... ..."
-        "... ... ... ... ... ... ... ... ... ... ... ... ...";
-}
-
-.field-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.field-touches {
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }

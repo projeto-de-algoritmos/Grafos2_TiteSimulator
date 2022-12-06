@@ -6,7 +6,7 @@ section {
     color: white;
     background-color: #52031B;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .options-container {

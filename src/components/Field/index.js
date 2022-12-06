@@ -1,23 +1,75 @@
 import Player from '../Player';
+import fieldSvg from '../../assets/svg/field.svg';
 import './index.css';
+import TouchLine from '../TouchLine';
 
 const Field = (props) => {
-    const { formation } = props;
+    const { mode, formation, result } = props;
+
+    function getPlayerByNumber(playerNumber) {
+        const player = formation.formationPlayers.find(player => player.playerNumber === playerNumber);
+        return player;
+    }
+
+    const renderAllPossibleTouches = () =>
+        formation.formationPlayers.map(playerA =>
+            playerA.touchOptions.map(touchOption => {
+                const playerB = getPlayerByNumber(touchOption.playerNumber);
+
+                return (
+                    <TouchLine
+                        key={`line${playerA.playerNumber}-${playerB.playerNumber}`}
+                        playerA={playerA}
+                        playerB={playerB}
+                    />
+                );
+
+            }));
+
+    const renderFinalTouches = () => {
+        if (result === null) return null;
+
+        let touches = [];
+        for (let i = 0; i < result.length - 1; i++) {
+            const playerA = getPlayerByNumber(result[i]);
+            const playerB = getPlayerByNumber(result[i + 1]);
+
+            touches.push({ playerA: playerA, playerB: playerB });
+        }
+
+        return touches.map(touch => {
+            return (
+                <TouchLine
+                    key={`line${touch.playerA.playerNumber}-${touch.playerB.playerNumber}`}
+                    playerA={touch.playerA}
+                    playerB={touch.playerB}
+                />
+            )
+        });
+    }
+
+
+    const renderPlayers = () => formation.formationPlayers.map(player =>
+        <Player
+            key={`player${player.playerNumber}`}
+            number={player.playerNumber}
+            positionX={player.positionX}
+            positionY={player.positionY}
+            status='normal'
+        />
+    );
 
     return (
-        <div className={`field-players field${formation}`}>
-            <Player number="1" status='normal' />
-            <Player number="2" status='normal' />
-            <Player number="3" status='normal' />
-            <Player number="4" status='normal' />
-            <Player number="5" status='normal' />
-            <Player number="6" status='normal' />
-            <Player number="7" status='normal' />
-            <Player number="8" status='normal' />
-            <Player number="9" status='normal' />
-            <Player number="10" status='normal' />
-            <Player number="11" status='normal' />
+        <div className='field' style={{ backgroundImage: `url(${fieldSvg})` }}>
+            <div className='field-touches'>
+                {mode === 'init' ? renderAllPossibleTouches() : renderFinalTouches()}
+            </div>
+            <div className={`field-players field${formation}`}>
+                {renderPlayers()}
+            </div>
+
         </div>
+
     );
 }
 

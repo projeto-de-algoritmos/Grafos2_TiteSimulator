@@ -9,6 +9,7 @@ import './index.css';
 
 const MainPage = () => {
   const [mode, setMode] = useState('init'); // Status: init/neutralize-players/result
+  const [result, setResult] = useState(null); // Status: init/neutralize-players/result
   const [boardText, setBoardText] = useState('BEM AMIGOS DA REDE GLOBO!');
 
   const formationsList = getFormationsNameList();
@@ -24,19 +25,13 @@ const MainPage = () => {
     setResultBtnStatus('hidden');
     setResetBtnStatus('active');
 
-    const formationData = getFormationFromName('4-1-2-3');
+    const formationData = getFormationFromName(selectedFormation);
     const graph = getWeightedGraphFromData(formationData.formationPlayers);
 
     const result = dijkstra(graph, formationData.firstPlayer, formationData.lastPlayer);
-    if (result !== null) {
-      let resultString = '';
-      result.forEach(
-        (node, index) => resultString = index === 0 ? String(node) : `${resultString}-${node}`
-      );
-      setBoardText(resultString);
-    } else {
-      setBoardText("ARGENTINA NEUTRALIZOU TODAS JOGADAS POSSÍVEIS");
-    }
+    const resultText = result === null ? 'ARGENTINA NEUTRALIZOU TODAS JOGADAS POSSÍVEIS' : 'TÁ AÍ A MELHOR JOGADA';
+    setResult(result);
+    setBoardText(resultText);
   }
 
   const handleResetClick = () => {
@@ -82,7 +77,7 @@ const MainPage = () => {
         </div>
         <div className='field-container'>
           <Board text={boardText} />
-          <Field mode={mode} formation={selectedFormation} />
+          <Field mode={mode} formation={getFormationFromName(selectedFormation)} result={result} />
         </div>
       </section >
     </div >
